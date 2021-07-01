@@ -12,6 +12,10 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 
+
+# Set external Simple Mail Transfer Protocol(SMTP)
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -55,7 +59,7 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [f'{BASE_DIR}/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -67,6 +71,8 @@ TEMPLATES = [
         },
     },
 ]
+print(os.path.join(BASE_DIR, 'blog/templates/'),
+      'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
 
@@ -118,4 +124,4 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = 'static/'
